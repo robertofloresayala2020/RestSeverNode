@@ -1,0 +1,5 @@
+
+npm install -y
+nodemon  app
+npm i express dotenv
+npm i cors  para el middleware
