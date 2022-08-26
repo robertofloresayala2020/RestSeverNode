@@ -3,3 +3,8 @@ npm install -y
 nodemon  app
 npm i express dotenv
 npm i cors  para el middleware
+
+para hacer una tag en git
+
+git  tag
+git tag  -a v1.0.0
