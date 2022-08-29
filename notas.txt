@@ -8,3 +8,10 @@ para hacer una tag en git
 
 git  tag
 git tag  -a v1.0.0
+
+
+Para utilizar la base de datos...
+
+npm i mongoose
+
+Instalar el npm i express-validator
