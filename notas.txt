@@ -15,3 +15,20 @@ Para utilizar la base de datos...
 npm i mongoose
 
 Instalar el npm i express-validator
+
+PARA REMOVER EL ESGUIMEINTO A UN ARCHIVO
+git rm .env  --cached
+git add . 
+git commit  - m ".env borrado "
+
+
+PARA DECODIFICAR EL TOKEN
+
+function parseJwt (token) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace('-', '+').replace('_', '/');
+    return JSON.parse(window.atob(base64));
+};
+
+PARA LA CREACION DE TOKENS
+npm i jsonwebtoken

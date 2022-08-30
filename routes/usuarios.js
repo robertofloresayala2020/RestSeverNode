@@ -1,8 +1,11 @@
 
 const { Router } = require('express');
 const {check}= require('express-validator');
-const {validarCampos}  = require('../middlewares/valida-campos');
+const{validarCampos,validarJWT, esAdminRole, tieneRoles}= require('../middlewares/index');
 const {IsValidRol,EmailExist, existeUsuarioPorId} = require('../helpers/db-validator');
+
+
+
 /*Destrucuturamos*/
 const { usuariosGet,
         usuariosPut,
@@ -37,6 +40,10 @@ router.post('/', [
             usuariosPost ); // Manda la referencia usuariosPot de que controlador ocupara
 
 router.delete('/:id',[
+            
+            validarJWT,
+            esAdminRole,      
+            tieneRoles('ADMIN_ROLE','SUPER_ROLE') ,   
             check('id','No es un ID válido').isMongoId(),
             check('id').custom(existeUsuarioPorId),    
             validarCampos]        
