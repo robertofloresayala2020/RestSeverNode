@@ -5,7 +5,7 @@ const {check}= require('express-validator');
 
 const router = Router();
 
-const { login } = require('../controllers/auth');
+const { login,googleSingIn } = require('../controllers/auth');
 const {validarCampos} = require('../middlewares/valida-campos');
 
 router.post('/login',
@@ -14,5 +14,14 @@ router.post('/login',
             validarCampos]
             ,   login ); // Manda la referencia  usuariosGet de que controlador ocupara
 
+
+router.post('/google',
+            [
+            check('id_token','El id_token es necesario').not().isEmpty(),
+            validarCampos]
+            , googleSingIn   ); // Manda la referencia  usuariosGet de que controlador ocupara
+
+
+            
 
 module.exports = router;
